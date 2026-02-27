@@ -49,3 +49,27 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #2A2A2A;
 }
+
+/* ── Glass heading gradient animation ── */
+@keyframes glass-shift {
+  0%, 100% { background-position: 0% 50%; }
+  33%       { background-position: 60% 30%; }
+  66%       { background-position: 100% 70%; }
+}
+
+.glass-heading {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(210, 205, 255, 0.88) 22%,
+    rgba(255, 255, 255, 0.82) 45%,
+    rgba(195, 210, 255, 0.88) 68%,
+    rgba(255, 248, 235, 0.93) 85%,
+    rgba(255, 255, 255, 0.97) 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: glass-shift 10s ease-in-out infinite;
+}

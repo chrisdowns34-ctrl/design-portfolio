@@ -25,8 +25,52 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col">
       {/* ── Hero ──────────────────────────────────────────── */}
-      <section className="min-h-screen flex flex-col justify-end px-6 md:px-12 pb-16 md:pb-24 pt-32">
-        <div className="max-w-[1400px] mx-auto w-full">
+      <section className="relative min-h-screen flex flex-col justify-end px-6 md:px-12 pb-16 md:pb-24 pt-32 overflow-hidden">
+
+        {/* ── Gradient orbs ── */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {/* Orb 1 — indigo, top-left */}
+          <motion.div
+            className="absolute w-[700px] h-[700px] rounded-full"
+            style={{
+              top: "-15%",
+              left: "-10%",
+              background:
+                "radial-gradient(circle at center, rgba(99,102,241,0.38) 0%, transparent 68%)",
+            }}
+            animate={{ x: [0, 120, 50, 0], y: [0, 90, -40, 0] }}
+            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Orb 2 — violet, right */}
+          <motion.div
+            className="absolute w-[600px] h-[600px] rounded-full"
+            style={{
+              top: "15%",
+              right: "-8%",
+              background:
+                "radial-gradient(circle at center, rgba(139,92,246,0.30) 0%, transparent 68%)",
+            }}
+            animate={{ x: [0, -90, 30, 0], y: [0, 110, -60, 0] }}
+            transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Orb 3 — warm amber, bottom-center */}
+          <motion.div
+            className="absolute w-[500px] h-[500px] rounded-full"
+            style={{
+              bottom: "5%",
+              left: "35%",
+              background:
+                "radial-gradient(circle at center, rgba(201,169,110,0.22) 0%, transparent 68%)",
+            }}
+            animate={{ x: [0, -70, 100, 0], y: [0, -60, -110, 0] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Vignette — keeps text readable */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/30 to-[#0A0A0A]/50" />
+        </div>
+
+        {/* ── Content ── */}
+        <div className="relative z-10 max-w-[1400px] mx-auto w-full">
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -40,9 +84,9 @@ export default function Home() {
               </span>
             </motion.div>
 
-            {/* Name — oversized display type */}
+            {/* Name — glassy display type */}
             <motion.div variants={fadeUp} transition={{ duration: 0.6 }}>
-              <h1 className="text-[clamp(4rem,13vw,11rem)] font-bold leading-[0.9] tracking-tighter text-[#F2F2F2]">
+              <h1 className="glass-heading text-[clamp(4rem,13vw,11rem)] font-bold leading-[0.9] tracking-tighter">
                 Chris
                 <br />
                 Downs.
