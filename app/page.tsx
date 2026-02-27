@@ -88,18 +88,21 @@ export default function Home() {
             <span className="font-mono text-xs text-[#6B6B6B] tracking-[0.2em] uppercase">
               Selected Work
             </span>
-            <span className="font-mono text-xs text-[#2A2A2A]">
-              ({String(featured.length).padStart(2, "0")})
-            </span>
+            <Link
+              href="/work"
+              className="font-mono text-xs text-[#6B6B6B] hover:text-[#F2F2F2] transition-colors duration-200"
+            >
+              All work →
+            </Link>
           </div>
 
-          {/* Work cards */}
+          {/* 2×2 card grid */}
           <motion.ol
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
-            className="flex flex-col gap-2"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4"
           >
             {featured.map((project, i) => (
               <motion.li
@@ -109,58 +112,57 @@ export default function Home() {
               >
                 <Link
                   href={`/work/${project.slug}`}
-                  className="group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 p-5 rounded-2xl bg-[#0F0F0F] border border-[#1A1A1A] hover:bg-[#141414] hover:border-[#252525] transition-all duration-300"
+                  className="group block rounded-2xl bg-[#0F0F0F] border border-[#1A1A1A] overflow-hidden hover:border-[#2A2A2A] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.45)]"
                 >
-                  {/* Index */}
-                  <span className="font-mono text-xs text-[#2A2A2A] shrink-0 w-8">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-
-                  {/* Cover color block */}
+                  {/* ── Banner ── */}
                   <div
-                    className="w-full sm:w-24 h-16 sm:h-14 shrink-0 rounded-xl transition-transform duration-300 group-hover:scale-105"
+                    className="relative w-full aspect-[16/10] overflow-hidden"
                     style={{ backgroundColor: project.coverColor }}
-                  />
+                  >
+                    {/* Depth gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
-                  {/* Title */}
-                  <h2 className="flex-1 text-[clamp(1.5rem,4vw,2.75rem)] font-bold leading-none tracking-tight text-[#F2F2F2] group-hover:translate-x-1 transition-transform duration-300">
-                    {project.title}
-                  </h2>
-
-                  {/* Meta */}
-                  <div className="flex flex-col sm:items-end gap-1 shrink-0 sm:text-right">
-                    <span className="font-mono text-xs text-[#6B6B6B]">
-                      {project.category}
+                    {/* Index */}
+                    <span className="absolute top-4 left-4 font-mono text-xs text-white/30">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-mono text-xs text-[#2A2A2A]">
-                      {project.year}
+
+                    {/* Category badge */}
+                    <span className="absolute top-4 right-4 font-mono text-xs text-white/50 bg-black/25 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
+                      {project.category}
                     </span>
                   </div>
 
-                  {/* Arrow */}
-                  <span className="hidden sm:block text-[#2A2A2A] group-hover:text-[#C9A96E] transition-colors duration-300 shrink-0">
-                    →
-                  </span>
+                  {/* ── Info tier ── */}
+                  <div className="p-6">
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <h2 className="text-xl font-bold tracking-tight text-[#F2F2F2] leading-snug">
+                        {project.title}
+                      </h2>
+                      <span className="text-[#2A2A2A] group-hover:text-[#C9A96E] transition-colors duration-300 text-lg shrink-0 mt-0.5">
+                        →
+                      </span>
+                    </div>
+
+                    <p className="font-mono text-xs text-[#6B6B6B] leading-relaxed mb-5">
+                      {project.description}
+                    </p>
+
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs text-[#2A2A2A]">
+                        {project.year}
+                      </span>
+                      <span className="font-mono text-xs text-[#2A2A2A]">·</span>
+                      <span className="font-mono text-xs text-[#2A2A2A]">
+                        {project.role}
+                      </span>
+                    </div>
+                  </div>
                 </Link>
               </motion.li>
             ))}
           </motion.ol>
-
-          {/* All work link */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="mt-8 flex justify-end"
-          >
-            <Link
-              href="/work"
-              className="font-mono text-sm text-[#6B6B6B] hover:text-[#F2F2F2] transition-colors duration-200 flex items-center gap-2"
-            >
-              All work →
-            </Link>
-          </motion.div>
         </div>
       </section>
 

@@ -102,7 +102,7 @@ export const projects: Project[] = [
     year: "2023",
     role: "Designer + Developer",
     tools: ["Figma", "Next.js", "Tailwind CSS", "Vercel"],
-    featured: false,
+    featured: true,
     coverColor: "#1A0F1F",
     description:
       "A minimalist focus timer and ambient sound mixer. Designed, built, and deployed in a weekend.",
