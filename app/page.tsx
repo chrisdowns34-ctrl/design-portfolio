@@ -61,16 +61,16 @@ export default function Home() {
                 things that work.
               </p>
 
-              <div className="flex items-center gap-6 shrink-0">
+              <div className="flex items-center gap-3 shrink-0">
                 <Link
                   href="/work"
-                  className="text-sm font-medium text-[#F2F2F2] border border-[#F2F2F2] px-6 py-3 hover:bg-[#F2F2F2] hover:text-[#0A0A0A] transition-all duration-200"
+                  className="text-sm font-medium text-[#0A0A0A] bg-[#F2F2F2] px-6 py-3 rounded-full hover:bg-[#C9A96E] transition-all duration-200"
                 >
                   View Work
                 </Link>
                 <Link
                   href="/about"
-                  className="text-sm text-[#6B6B6B] hover:text-[#F2F2F2] transition-colors duration-200"
+                  className="text-sm text-[#6B6B6B] hover:text-[#F2F2F2] transition-colors duration-200 px-4 py-3"
                 >
                   About me →
                 </Link>
@@ -81,10 +81,10 @@ export default function Home() {
       </section>
 
       {/* ── Selected Work ──────────────────────────────────── */}
-      <section className="px-6 md:px-12 py-24 border-t border-[#1F1F1F]">
+      <section className="px-6 md:px-12 py-24">
         <div className="max-w-[1400px] mx-auto">
           {/* Section header */}
-          <div className="flex items-baseline justify-between mb-16">
+          <div className="flex items-baseline justify-between mb-8">
             <span className="font-mono text-xs text-[#6B6B6B] tracking-[0.2em] uppercase">
               Selected Work
             </span>
@@ -93,13 +93,13 @@ export default function Home() {
             </span>
           </div>
 
-          {/* Work list */}
+          {/* Work cards */}
           <motion.ol
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
-            className="divide-y divide-[#1F1F1F]"
+            className="flex flex-col gap-2"
           >
             {featured.map((project, i) => (
               <motion.li
@@ -109,7 +109,7 @@ export default function Home() {
               >
                 <Link
                   href={`/work/${project.slug}`}
-                  className="group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 py-8 md:py-10"
+                  className="group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 p-5 rounded-2xl bg-[#0F0F0F] border border-[#1A1A1A] hover:bg-[#141414] hover:border-[#252525] transition-all duration-300"
                 >
                   {/* Index */}
                   <span className="font-mono text-xs text-[#2A2A2A] shrink-0 w-8">
@@ -118,7 +118,7 @@ export default function Home() {
 
                   {/* Cover color block */}
                   <div
-                    className="w-full sm:w-24 h-16 sm:h-14 shrink-0 rounded-sm transition-transform duration-300 group-hover:scale-105"
+                    className="w-full sm:w-24 h-16 sm:h-14 shrink-0 rounded-xl transition-transform duration-300 group-hover:scale-105"
                     style={{ backgroundColor: project.coverColor }}
                   />
 
@@ -152,7 +152,7 @@ export default function Home() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="mt-16 flex justify-end"
+            className="mt-8 flex justify-end"
           >
             <Link
               href="/work"
@@ -165,32 +165,34 @@ export default function Home() {
       </section>
 
       {/* ── About strip ────────────────────────────────────── */}
-      <section className="px-6 md:px-12 py-24 border-t border-[#1F1F1F]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-[200px_1fr] gap-12">
-          <div>
-            <span className="font-mono text-xs text-[#6B6B6B] tracking-[0.2em] uppercase">
-              About
-            </span>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-[clamp(1.125rem,2.5vw,1.5rem)] text-[#F2F2F2] leading-relaxed max-w-2xl mb-8">
-              I&apos;m a product designer with a rare overlap — I design with
-              real craft and build with real code. Most of my work lives at the
-              intersection of product strategy, interface design, and
-              engineering.
-            </p>
-            <Link
-              href="/about"
-              className="font-mono text-sm text-[#C9A96E] hover:text-[#F2F2F2] transition-colors duration-200"
+      <section className="px-6 md:px-12 py-24">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="bg-[#0F0F0F] border border-[#1A1A1A] rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-[160px_1fr] gap-10">
+            <div>
+              <span className="font-mono text-xs text-[#6B6B6B] tracking-[0.2em] uppercase">
+                About
+              </span>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              More about me →
-            </Link>
-          </motion.div>
+              <p className="text-[clamp(1.125rem,2.5vw,1.5rem)] text-[#F2F2F2] leading-relaxed max-w-2xl mb-8">
+                I&apos;m a product designer with a rare overlap — I design with
+                real craft and build with real code. Most of my work lives at
+                the intersection of product strategy, interface design, and
+                engineering.
+              </p>
+              <Link
+                href="/about"
+                className="font-mono text-sm text-[#C9A96E] hover:text-[#F2F2F2] transition-colors duration-200"
+              >
+                More about me →
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
 

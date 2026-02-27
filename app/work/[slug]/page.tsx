@@ -29,13 +29,9 @@ export default function CaseStudyPage() {
   return (
     <main className="min-h-screen flex flex-col">
       {/* ── Hero ──────────────────────────────────────────── */}
-      <section className="px-6 md:px-12 pt-40 pb-16">
+      <section className="px-6 md:px-12 pt-36 pb-16">
         <div className="max-w-[1400px] mx-auto">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate="show"
-          >
+          <motion.div variants={stagger} initial="hidden" animate="show">
             {/* Back link */}
             <motion.div variants={fadeUp} transition={{ duration: 0.4 }}>
               <Link
@@ -60,40 +56,26 @@ export default function CaseStudyPage() {
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-16 pt-8 border-t border-[#1F1F1F]"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12"
             >
-              <div>
-                <span className="font-mono text-xs text-[#2A2A2A] tracking-[0.15em] uppercase block mb-2">
-                  Role
-                </span>
-                <span className="font-mono text-sm text-[#F2F2F2]">
-                  {project.role}
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-xs text-[#2A2A2A] tracking-[0.15em] uppercase block mb-2">
-                  Category
-                </span>
-                <span className="font-mono text-sm text-[#F2F2F2]">
-                  {project.category}
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-xs text-[#2A2A2A] tracking-[0.15em] uppercase block mb-2">
-                  Year
-                </span>
-                <span className="font-mono text-sm text-[#F2F2F2]">
-                  {project.year}
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-xs text-[#2A2A2A] tracking-[0.15em] uppercase block mb-2">
-                  Tools
-                </span>
-                <span className="font-mono text-sm text-[#F2F2F2] leading-relaxed">
-                  {project.tools.join(", ")}
-                </span>
-              </div>
+              {[
+                { label: "Role", value: project.role },
+                { label: "Category", value: project.category },
+                { label: "Year", value: project.year },
+                { label: "Tools", value: project.tools.join(", ") },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="bg-[#0F0F0F] border border-[#1A1A1A] rounded-2xl p-4"
+                >
+                  <span className="font-mono text-xs text-[#2A2A2A] tracking-[0.15em] uppercase block mb-2">
+                    {item.label}
+                  </span>
+                  <span className="font-mono text-sm text-[#F2F2F2] leading-relaxed">
+                    {item.value}
+                  </span>
+                </div>
+              ))}
             </motion.div>
 
             {/* External links */}
@@ -101,14 +83,14 @@ export default function CaseStudyPage() {
               <motion.div
                 variants={fadeUp}
                 transition={{ duration: 0.4 }}
-                className="flex items-center gap-6 mt-8"
+                className="flex items-center gap-3 mt-6"
               >
                 {project.link && (
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-xs text-[#C9A96E] hover:text-[#F2F2F2] transition-colors duration-200"
+                    className="font-mono text-xs text-[#0A0A0A] bg-[#C9A96E] px-4 py-2 rounded-full hover:bg-[#F2F2F2] transition-colors duration-200"
                   >
                     Live Site →
                   </a>
@@ -118,7 +100,7 @@ export default function CaseStudyPage() {
                     href={project.codeLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-xs text-[#C9A96E] hover:text-[#F2F2F2] transition-colors duration-200"
+                    className="font-mono text-xs text-[#6B6B6B] bg-[#111111] border border-[#1F1F1F] px-4 py-2 rounded-full hover:text-[#F2F2F2] hover:border-[#2A2A2A] transition-all duration-200"
                   >
                     View Code →
                   </a>
@@ -130,13 +112,13 @@ export default function CaseStudyPage() {
       </section>
 
       {/* ── Cover image placeholder ───────────────────────── */}
-      <section className="px-6 md:px-12 pb-24">
+      <section className="px-6 md:px-12 pb-12">
         <div className="max-w-[1400px] mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.99 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full aspect-[16/7] rounded-sm flex items-center justify-center"
+            className="w-full aspect-[16/7] rounded-2xl flex items-center justify-center"
             style={{ backgroundColor: project.coverColor }}
           >
             <span className="font-mono text-xs text-white/20 tracking-[0.3em] uppercase">
@@ -147,36 +129,32 @@ export default function CaseStudyPage() {
       </section>
 
       {/* ── Case study content ────────────────────────────── */}
-      <section className="px-6 md:px-12 pb-24">
-        <div className="max-w-[1400px] mx-auto space-y-0">
-          {/* Overview */}
+      <section className="px-6 md:px-12 pb-16">
+        <div className="max-w-[1400px] mx-auto space-y-3">
           <ContentRow label="Overview" delay={0}>
             <p className="text-[clamp(1rem,2vw,1.125rem)] text-[#F2F2F2] leading-relaxed">
               {project.overview}
             </p>
           </ContentRow>
 
-          {/* Challenge */}
           <ContentRow label="Challenge" delay={0.05}>
             <p className="text-[clamp(1rem,2vw,1.125rem)] text-[#F2F2F2] leading-relaxed">
               {project.challenge}
             </p>
           </ContentRow>
 
-          {/* Process */}
           <ContentRow label="Process" delay={0.1}>
             <p className="text-[clamp(1rem,2vw,1.125rem)] text-[#F2F2F2] leading-relaxed">
               {project.process}
             </p>
           </ContentRow>
 
-          {/* Image placeholder grid */}
           <ContentRow label="Work" delay={0.15}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[1, 2, 3, 4].map((n) => (
                 <div
                   key={n}
-                  className="aspect-[4/3] rounded-sm flex items-center justify-center"
+                  className="aspect-[4/3] rounded-2xl flex items-center justify-center"
                   style={{ backgroundColor: project.coverColor }}
                 >
                   <span className="font-mono text-xs text-white/20 tracking-[0.2em] uppercase">
@@ -187,7 +165,6 @@ export default function CaseStudyPage() {
             </div>
           </ContentRow>
 
-          {/* Outcomes */}
           <ContentRow label="Outcomes" delay={0.2}>
             <ul className="space-y-4">
               {project.outcomes.map((outcome, i) => (
@@ -206,23 +183,23 @@ export default function CaseStudyPage() {
       </section>
 
       {/* ── Next project ──────────────────────────────────── */}
-      <section className="px-6 md:px-12 py-24 border-t border-[#1F1F1F]">
+      <section className="px-6 md:px-12 py-8 pb-12">
         <div className="max-w-[1400px] mx-auto">
-          <span className="font-mono text-xs text-[#6B6B6B] tracking-[0.2em] uppercase block mb-8">
+          <span className="font-mono text-xs text-[#6B6B6B] tracking-[0.2em] uppercase block mb-6">
             Next Project
           </span>
           <Link
             href={`/work/${nextProject.slug}`}
-            className="group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8"
+            className="group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 p-6 rounded-2xl bg-[#0F0F0F] border border-[#1A1A1A] hover:bg-[#141414] hover:border-[#252525] transition-all duration-300"
           >
             <div
-              className="w-24 h-14 shrink-0 rounded-sm transition-transform duration-300 group-hover:scale-105"
+              className="w-24 h-14 shrink-0 rounded-xl transition-transform duration-300 group-hover:scale-105"
               style={{ backgroundColor: nextProject.coverColor }}
             />
-            <h3 className="text-[clamp(2rem,6vw,4.5rem)] font-bold leading-none tracking-tight text-[#F2F2F2] group-hover:translate-x-2 transition-transform duration-300">
+            <h3 className="flex-1 text-[clamp(1.75rem,5vw,3.5rem)] font-bold leading-none tracking-tight text-[#F2F2F2] group-hover:translate-x-1 transition-transform duration-300">
               {nextProject.title}
             </h3>
-            <span className="text-[#2A2A2A] group-hover:text-[#C9A96E] transition-colors duration-300 text-2xl">
+            <span className="text-[#2A2A2A] group-hover:text-[#C9A96E] transition-colors duration-300 text-2xl shrink-0">
               →
             </span>
           </Link>
@@ -249,9 +226,9 @@ function ContentRow({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay }}
-      className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 md:gap-16 py-12 border-t border-[#1F1F1F]"
+      className="bg-[#0F0F0F] border border-[#1A1A1A] rounded-2xl p-6 md:p-8 grid grid-cols-1 md:grid-cols-[160px_1fr] gap-6 md:gap-12"
     >
-      <div className="pt-1">
+      <div className="pt-0.5">
         <span className="font-mono text-xs text-[#6B6B6B] tracking-[0.2em] uppercase">
           {label}
         </span>
