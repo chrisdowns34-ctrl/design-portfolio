@@ -7,7 +7,7 @@
   --color-text: #F2F2F2;
   --color-muted: #6B6B6B;
   --color-dim: #2A2A2A;
-  --color-accent: #C9A96E;
+  --color-accent: #5B83F5;
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -34,7 +34,7 @@ body {
 }
 
 ::selection {
-  background-color: #C9A96E;
+  background-color: #5B83F5;
   color: #0A0A0A;
 }
 

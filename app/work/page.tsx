@@ -92,7 +92,7 @@ export default function WorkPage() {
                   </div>
 
                   {/* Arrow */}
-                  <span className="hidden sm:block text-[#2A2A2A] group-hover:text-[#C9A96E] transition-colors duration-300 shrink-0">
+                  <span className="hidden sm:block text-[#2A2A2A] group-hover:text-[#5B83F5] transition-colors duration-300 shrink-0">
                     →
                   </span>
                 </Link>

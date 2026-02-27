@@ -79,7 +79,7 @@ export default function Home() {
           >
             {/* Availability label */}
             <motion.div variants={fadeUp} transition={{ duration: 0.5 }}>
-              <span className="font-mono text-xs text-[#C9A96E] tracking-[0.2em] uppercase">
+              <span className="font-mono text-xs text-[#5B83F5] tracking-[0.2em] uppercase">
                 Available for freelance work
               </span>
             </motion.div>
@@ -108,7 +108,7 @@ export default function Home() {
               <div className="flex items-center gap-3 shrink-0">
                 <Link
                   href="/work"
-                  className="text-sm font-medium text-[#0A0A0A] bg-[#F2F2F2] px-6 py-3 rounded-full hover:bg-[#C9A96E] transition-all duration-200"
+                  className="text-sm font-medium text-[#0A0A0A] bg-[#F2F2F2] px-6 py-3 rounded-full hover:bg-[#5B83F5] transition-all duration-200"
                 >
                   View Work
                 </Link>
@@ -184,7 +184,7 @@ export default function Home() {
                       <h2 className="text-xl font-bold tracking-tight text-[#F2F2F2] leading-snug">
                         {project.title}
                       </h2>
-                      <span className="text-[#2A2A2A] group-hover:text-[#C9A96E] transition-colors duration-300 text-lg shrink-0 mt-0.5">
+                      <span className="text-[#2A2A2A] group-hover:text-[#5B83F5] transition-colors duration-300 text-lg shrink-0 mt-0.5">
                         →
                       </span>
                     </div>
@@ -215,6 +215,9 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <div className="bg-[#0F0F0F] border border-[#1A1A1A] rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-[160px_1fr] gap-10">
             <div>
+              <div className="w-full max-w-[160px] aspect-square rounded-2xl bg-[#141414] border border-[#1A1A1A] flex items-center justify-center mb-5">
+                <span className="font-mono text-xs text-[#2A2A2A] tracking-[0.2em]">CD</span>
+              </div>
               <span className="font-mono text-xs text-[#6B6B6B] tracking-[0.2em] uppercase">
                 About
               </span>
@@ -233,7 +236,7 @@ export default function Home() {
               </p>
               <Link
                 href="/about"
-                className="font-mono text-sm text-[#C9A96E] hover:text-[#F2F2F2] transition-colors duration-200"
+                className="font-mono text-sm text-[#5B83F5] hover:text-[#F2F2F2] transition-colors duration-200"
               >
                 More about me →
               </Link>

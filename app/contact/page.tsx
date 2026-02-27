@@ -84,7 +84,7 @@ export default function ContactPage() {
                       <span className="font-mono text-xs tracking-[0.15em] uppercase">
                         {social.label}
                       </span>
-                      <span className="text-sm group-hover:text-[#C9A96E] transition-colors duration-200">
+                      <span className="text-sm group-hover:text-[#5B83F5] transition-colors duration-200">
                         {social.display}
                       </span>
                     </a>

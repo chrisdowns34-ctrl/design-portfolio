@@ -17,6 +17,7 @@ const DURATION = 0.55;
 export default function Nav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [mousePos, setMousePos] = useState<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -54,6 +55,12 @@ export default function Nav() {
         transition={{ duration: DURATION, ease: EASE }}
         className="relative w-full flex items-center justify-between overflow-hidden"
         style={{ borderWidth: 1, borderStyle: "solid" }}
+        onMouseMove={(e) => {
+          if (!scrolled) return;
+          const rect = e.currentTarget.getBoundingClientRect();
+          setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        }}
+        onMouseLeave={() => setMousePos(null)}
       >
         {/* Backdrop blur layer — fades in separately */}
         <motion.div
@@ -62,10 +69,20 @@ export default function Nav() {
           transition={{ duration: 0.4, ease: EASE }}
         />
 
+        {/* Mouse spotlight */}
+        {scrolled && mousePos && (
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: `radial-gradient(60px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,0.04) 0%, transparent 100%)`,
+            }}
+          />
+        )}
+
         {/* Logo */}
         <Link
           href="/"
-          className="font-mono text-xs text-[#F2F2F2] hover:text-[#C9A96E] transition-colors duration-200 tracking-[0.2em] uppercase px-2 py-1 rounded-full shrink-0"
+          className="font-mono text-xs text-[#F2F2F2] hover:text-[#5B83F5] transition-colors duration-200 tracking-[0.2em] uppercase px-2 py-1 rounded-full shrink-0"
         >
           CD
         </Link>

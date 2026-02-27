@@ -52,6 +52,9 @@ export default function AboutPage() {
         <div className="max-w-[1400px] mx-auto">
           <div className="bg-[#0F0F0F] border border-[#1A1A1A] rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-[160px_1fr] gap-10">
             <div className="pt-1">
+              <div className="w-full max-w-[160px] aspect-square rounded-2xl bg-[#141414] border border-[#1A1A1A] flex items-center justify-center mb-5">
+                <span className="font-mono text-xs text-[#2A2A2A] tracking-[0.2em]">CD</span>
+              </div>
               <span className="font-mono text-xs text-[#6B6B6B] tracking-[0.2em] uppercase">
                 Profile
               </span>
@@ -103,7 +106,7 @@ export default function AboutPage() {
             >
               {skills.map((group) => (
                 <div key={group.category}>
-                  <span className="font-mono text-xs text-[#C9A96E] tracking-[0.2em] uppercase block mb-5">
+                  <span className="font-mono text-xs text-[#5B83F5] tracking-[0.2em] uppercase block mb-5">
                     {group.category}
                   </span>
                   <ul className="space-y-3">
@@ -195,7 +198,7 @@ export default function AboutPage() {
               </a>
               <Link
                 href="/contact"
-                className="text-sm font-medium text-[#0A0A0A] bg-[#F2F2F2] px-6 py-3 rounded-full hover:bg-[#C9A96E] transition-all duration-200"
+                className="text-sm font-medium text-[#0A0A0A] bg-[#F2F2F2] px-6 py-3 rounded-full hover:bg-[#5B83F5] transition-all duration-200"
               >
                 Get in touch →
               </Link>

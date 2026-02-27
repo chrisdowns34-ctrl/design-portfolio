@@ -90,7 +90,7 @@ export default function CaseStudyPage() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-xs text-[#0A0A0A] bg-[#C9A96E] px-4 py-2 rounded-full hover:bg-[#F2F2F2] transition-colors duration-200"
+                    className="font-mono text-xs text-[#0A0A0A] bg-[#5B83F5] px-4 py-2 rounded-full hover:bg-[#F2F2F2] transition-colors duration-200"
                   >
                     Live Site →
                   </a>
@@ -169,7 +169,7 @@ export default function CaseStudyPage() {
             <ul className="space-y-4">
               {project.outcomes.map((outcome, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <span className="font-mono text-xs text-[#C9A96E] mt-1 shrink-0">
+                  <span className="font-mono text-xs text-[#5B83F5] mt-1 shrink-0">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="text-[clamp(1rem,2vw,1.125rem)] text-[#F2F2F2] leading-relaxed">
@@ -199,7 +199,7 @@ export default function CaseStudyPage() {
             <h3 className="flex-1 text-[clamp(1.75rem,5vw,3.5rem)] font-bold leading-none tracking-tight text-[#F2F2F2] group-hover:translate-x-1 transition-transform duration-300">
               {nextProject.title}
             </h3>
-            <span className="text-[#2A2A2A] group-hover:text-[#C9A96E] transition-colors duration-300 text-2xl shrink-0">
+            <span className="text-[#2A2A2A] group-hover:text-[#5B83F5] transition-colors duration-300 text-2xl shrink-0">
               →
             </span>
           </Link>
