@@ -42,14 +42,14 @@ export default function Nav() {
           paddingLeft: scrolled ? 8 : 48,
           paddingRight: scrolled ? 8 : 48,
           backgroundColor: scrolled
-            ? "rgba(17,17,17,0.85)"
-            : "rgba(17,17,17,0)",
+            ? "rgba(14,14,14,0.45)"
+            : "rgba(14,14,14,0)",
           borderColor: scrolled
-            ? "rgba(39,39,39,1)"
-            : "rgba(39,39,39,0)",
+            ? "rgba(255,255,255,0.1)"
+            : "rgba(255,255,255,0)",
           boxShadow: scrolled
-            ? "0 8px 40px rgba(0,0,0,0.5)"
-            : "0 0px 0px rgba(0,0,0,0)",
+            ? "inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 40px rgba(0,0,0,0.5)"
+            : "inset 0 0px 0 rgba(255,255,255,0), 0 0px 0px rgba(0,0,0,0)",
         }}
         transition={{ duration: DURATION, ease: EASE }}
         className="relative w-full flex items-center justify-between overflow-hidden"
